@@ -4,6 +4,7 @@ fun main() {
     val p = Person()
     p.name = "jack"
     p.eat()
+    printParams(456)
 }
 
 interface Study {
@@ -32,3 +33,15 @@ class Student : Person(), Study {
         println("====do homework====")
     }
 }
+
+fun doStudy(study: Study?) {
+    study?.let { stu ->
+        stu.readBooks()
+        stu.doHomework()
+    }
+}
+
+fun printParams(num: Int, str: String = "hello") {
+    println("num is $num, str is $str")
+}
+
