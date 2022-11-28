@@ -1,0 +1,6 @@
+### Gradle ###
+!gradle/wrapper/gradle-wrapper.jar
+.gradle
+gradle-app.setting
+.gradletasknamecache
+build/
