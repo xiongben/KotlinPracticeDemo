@@ -18,3 +18,8 @@ fun StringBuilder.build(block: StringBuilder.() -> Unit): StringBuilder {
     block()
     return this
 }
+
+public inline fun <T> T.apply(block: T.() -> Unit): T {
+    block()
+    return this
+}
