@@ -1,8 +1,2 @@
-<<<<<<< HEAD
 ### Gradle ###
-*/build/*
-=======
-
-**/build
-**/.gradle
->>>>>>> 0d64a03b3087e234a23d3bd0133d0050022ab70c
+*/build/
