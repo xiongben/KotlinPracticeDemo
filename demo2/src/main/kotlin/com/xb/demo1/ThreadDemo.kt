@@ -4,7 +4,7 @@ import kotlinx.coroutines.*
 
 
 fun main() {
-    println("start")
+//    println("start")
 //    GlobalScope.launch { // 在后台启动一个新的协程并继续
 //        delay(1000L) // 非阻塞的等待 1 秒钟（默认时间单位是毫秒）
 //        println("World!") // 在延迟后打印输出
