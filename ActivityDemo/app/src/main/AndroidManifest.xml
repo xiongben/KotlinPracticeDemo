@@ -9,11 +9,20 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/Theme.ActivityDemo">
+        <activity android:name=".SecondActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="com.example.activitytest.ACTION_START"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.example.activitytest.MY_CATEGORY"/>
+            </intent-filter>
+        </activity>
         <activity
+                android:exported="true"
                 android:name=".FirstActivity"
                 android:label="this is firstActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
+
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
