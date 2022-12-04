@@ -15,14 +15,19 @@ class FirstActivity : AppCompatActivity() {
         setContentView(R.layout.first_layout)
         var button1: Button = findViewById(R.id.button1)
         button1.setOnClickListener {
+            //第一种启动方法
 //            Toast.makeText(this, "You click button1!!!", Toast.LENGTH_SHORT).show()
 //            val intent = Intent(this, SecondActivity::class.java)
 //            startActivity(intent)
 
-            val intent = Intent("com.example.activitytest.ACTION_START")
-            intent.addCategory("com.example.activitytest.MY_CATEGORY")
-//            startActivity(intent)
-            startActivityForResult(intent, 1)
+            //第二种启动方法
+//            val intent = Intent("com.example.activitytest.ACTION_START")
+//            intent.addCategory("com.example.activitytest.MY_CATEGORY")
+////            startActivity(intent)
+//            startActivityForResult(intent, 1)
+
+            //第三种启动方法
+            SecondActivity.actionStart(this, "88888", "9999")
         }
     }
 
