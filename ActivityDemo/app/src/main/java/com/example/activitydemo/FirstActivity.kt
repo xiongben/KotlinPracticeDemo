@@ -14,6 +14,7 @@ class FirstActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.first_layout)
         var button1: Button = findViewById(R.id.button1)
+        var button2: Button = findViewById(R.id.button2)
         button1.setOnClickListener {
             //第一种启动方法
 //            Toast.makeText(this, "You click button1!!!", Toast.LENGTH_SHORT).show()
@@ -28,6 +29,11 @@ class FirstActivity : AppCompatActivity() {
 
             //第三种启动方法
             SecondActivity.actionStart(this, "88888", "9999")
+        }
+
+        button2.setOnClickListener {
+            val intent = Intent(this, ListDemoActivity::class.java)
+            startActivity(intent)
         }
     }
 
