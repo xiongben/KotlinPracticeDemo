@@ -15,6 +15,7 @@ class FirstActivity : AppCompatActivity() {
         setContentView(R.layout.first_layout)
         var button1: Button = findViewById(R.id.button1)
         var button2: Button = findViewById(R.id.button2)
+        var button3: Button = findViewById(R.id.button3)
         button1.setOnClickListener {
             //第一种启动方法
 //            Toast.makeText(this, "You click button1!!!", Toast.LENGTH_SHORT).show()
@@ -33,6 +34,11 @@ class FirstActivity : AppCompatActivity() {
 
         button2.setOnClickListener {
             val intent = Intent(this, ListDemoActivity::class.java)
+            startActivity(intent)
+        }
+
+        button3.setOnClickListener {
+            val intent = Intent(this, RecyclerViewDemoActivity::class.java)
             startActivity(intent)
         }
     }

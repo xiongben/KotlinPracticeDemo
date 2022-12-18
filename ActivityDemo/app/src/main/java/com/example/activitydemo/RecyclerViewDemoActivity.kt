@@ -2,29 +2,21 @@ package com.example.activitydemo
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ArrayAdapter
-import android.widget.ListView
-import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
-class ListDemoActivity : AppCompatActivity() {
-
-    private val listData = listOf<String>("apple","banner","pear","cherry","orange","watermelon","pear","grape","mango","pineapple")
+class RecyclerViewDemoActivity : AppCompatActivity() {
     private val fruitsList = mutableListOf<Fruit>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_list_demo)
+        setContentView(R.layout.activity_recycler_view_demo)
         initFruits()
-        val adapter = FruitAdapter(this, R.layout.fruit_item, fruitsList)
-//        val adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listData)
-        val listView: ListView = findViewById(R.id.listView)
+        val listView: RecyclerView = findViewById(R.id.recyclerView)
+        val layoutManager = LinearLayoutManager(this)
+        listView.layoutManager = layoutManager
+        val adapter: FruitRecyclerAdapter = FruitRecyclerAdapter(fruitsList)
         listView.adapter = adapter
-
-        //点击事件
-        listView.setOnItemClickListener { parent, view, position, id ->
-            val fruit = fruitsList[position]
-            Toast.makeText(this, fruit.name, Toast.LENGTH_SHORT).show()
-        }
     }
 
     private fun initFruits() {
