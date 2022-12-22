@@ -16,6 +16,7 @@ class FirstActivity : AppCompatActivity() {
         var button1: Button = findViewById(R.id.button1)
         var button2: Button = findViewById(R.id.button2)
         var button3: Button = findViewById(R.id.button3)
+        var button4: Button = findViewById(R.id.button4)
         button1.setOnClickListener {
             //第一种启动方法
 //            Toast.makeText(this, "You click button1!!!", Toast.LENGTH_SHORT).show()
@@ -39,6 +40,11 @@ class FirstActivity : AppCompatActivity() {
 
         button3.setOnClickListener {
             val intent = Intent(this, RecyclerViewDemoActivity::class.java)
+            startActivity(intent)
+        }
+
+        button4.setOnClickListener {
+            val intent = Intent(this, PatchActivity::class.java)
             startActivity(intent)
         }
     }
