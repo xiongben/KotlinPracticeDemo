@@ -15,11 +15,10 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"/>
 
-    <fragment
-            android:id="@+id/rightFrag"
-            android:name="com.example.fagmentdemo1.RightFragment"
-            android:layout_weight="1"
+    <FrameLayout
+            android:id="@+id/rightLayout"
             android:layout_width="0dp"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
 
 </LinearLayout>
