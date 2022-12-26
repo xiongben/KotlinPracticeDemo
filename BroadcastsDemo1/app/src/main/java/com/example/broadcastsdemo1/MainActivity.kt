@@ -7,6 +7,7 @@ import android.content.IntentFilter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,6 +20,14 @@ class MainActivity : AppCompatActivity() {
         intentFilter.addAction("android.intent.action.TIME_TICK")
         timeChangeReceiver = TimeChangeReceiver()
         registerReceiver(timeChangeReceiver, intentFilter)
+
+        // 发送标准广播
+        btn1.setOnClickListener {
+            val intent = Intent("com.example.broadcastsdemo1.MY_BROADCAST")
+            intent.setPackage(packageName)
+            sendOrderedBroadcast(intent, null)
+//            sendBroadcast(intent)
+        }
     }
 
     override fun onDestroy() {
@@ -28,7 +37,7 @@ class MainActivity : AppCompatActivity() {
 
     inner class TimeChangeReceiver : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
-            Toast.makeText(context, "Time has changed", Toast.LENGTH_SHORT).show()
+//            Toast.makeText(context, "Time has changed", Toast.LENGTH_SHORT).show()
         }
     }
 }
