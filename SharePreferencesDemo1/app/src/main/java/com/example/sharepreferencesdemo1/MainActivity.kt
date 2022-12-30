@@ -7,6 +7,7 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.*
 import java.lang.StringBuilder
+import android.content.Intent as Intent
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,6 +18,11 @@ class MainActivity : AppCompatActivity() {
             editText.setText(inputText)
             editText.setSelection(inputText.length) //光标后移
             Toast.makeText(this, "Restoring succeeded", Toast.LENGTH_SHORT).show()
+        }
+
+        btn1.setOnClickListener {
+            val intent = Intent(this, ShareDemo::class.java)
+            startActivity(intent)
         }
     }
 
