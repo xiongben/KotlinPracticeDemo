@@ -10,7 +10,7 @@ import android.os.IBinder
 import android.util.Log
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() { 
 
     lateinit var downloadBinder: MyService.DownloadBinder
 
