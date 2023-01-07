@@ -3,6 +3,8 @@ package com.example.httpdemo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.activity_main.*
 import okhttp3.OkHttpClient
 import okhttp3.*
@@ -60,11 +62,14 @@ class MainActivity : AppCompatActivity() {
                     .url("https://api.github.com/users")
                     .build()
                 val response = client.newCall(request).execute()
-                val responseData = response.body?.toString()
-                if (responseData != null) {
-//                    val res = JSONObject(responseData)
-//                    Log.d("MainActivity", res.toString())
-                }
+                val responseData = response.body?.string() as String
+                parseJSONWithGSON(responseData)
+//                Log.d("MainActivity", responseData)
+//                if (responseData != null) {
+//                    val item = JSONArray(responseData).getJSONObject(0)
+//                    val avatarUrl = item.getString("avatar_url")
+//                    Log.d("MainActivity", avatarUrl)
+//                }
             } catch (e: Exception) {
                 e.printStackTrace()
             }
@@ -82,6 +87,15 @@ class MainActivity : AppCompatActivity() {
             }
         } catch (e: Exception) {
             e.printStackTrace()
+        }
+    }
+
+    private fun parseJSONWithGSON(jsonData: String) {
+        val gson = Gson()
+        val typeOf = object : TypeToken<List<User>>() {}.type
+        val appList = gson.fromJson<List<User>>(jsonData, typeOf)
+        for (user in appList) {
+            Log.d("MainActivity", "login is ${user.login}")
         }
     }
 }
