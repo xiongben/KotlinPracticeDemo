@@ -9,7 +9,14 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/Theme.MaterialDemo1">
-        <activity android:name=".MainActivity" android:exported="true">
+        <activity
+                android:name=".FruitActivity"
+                android:label="@string/title_activity_fruit"
+                android:theme="@style/Theme.MaterialDemo1.NoActionBar">
+        </activity>
+        <activity
+                android:name=".MainActivity"
+                android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

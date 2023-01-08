@@ -6,9 +6,19 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.core.view.GravityCompat
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
+    val fruits = mutableListOf(
+        Fruit("Banana", R.drawable.banana),
+        Fruit("cherry", R.drawable.cherry),
+        Fruit("Grape", R.drawable.grape),
+        Fruit("Mango", R.drawable.mango)
+    )
+    val fruitList = ArrayList<Fruit>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -21,6 +31,14 @@ class MainActivity : AppCompatActivity() {
         navView.setNavigationItemSelectedListener {
             drawerLayout.closeDrawers()
             true
+        }
+
+        fab.setOnClickListener { view ->
+            Snackbar.make(view, "Data deleted", Snackbar.LENGTH_SHORT)
+                .setAction("Undo") {
+                    Toast.makeText(this, "data restored", Toast.LENGTH_SHORT).show()
+                }
+                .show()
         }
     }
 
