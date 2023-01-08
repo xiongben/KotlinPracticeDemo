@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.core.view.GravityCompat
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -30,6 +31,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
+            android.R.id.home -> drawerLayout.openDrawer(GravityCompat.START)
             R.id.backup -> Toast.makeText(this, "you clicked Backup", Toast.LENGTH_SHORT).show()
             R.id.delete -> Toast.makeText(this, "you clicked Delete", Toast.LENGTH_SHORT).show()
             R.id.settings -> Toast.makeText(this, "you clicked Settings", Toast.LENGTH_SHORT).show()
