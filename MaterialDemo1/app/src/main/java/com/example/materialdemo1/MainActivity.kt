@@ -6,8 +6,10 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.core.view.GravityCompat
+import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity() {
 
@@ -39,6 +41,36 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this, "data restored", Toast.LENGTH_SHORT).show()
                 }
                 .show()
+        }
+
+        initFruits()
+        val layoutManager = GridLayoutManager(this, 2)
+        recyclerView.layoutManager = layoutManager
+        val adapter = FruitAdapter(this, fruitList)
+        recyclerView.adapter = adapter
+        swipeRefresh.setColorSchemeResources(R.color.yellow)
+        swipeRefresh.setOnRefreshListener {
+            refreshFruits(adapter)
+        }
+
+    }
+
+    private fun refreshFruits(adapter: FruitAdapter) {
+        thread {
+            Thread.sleep(2000)
+            runOnUiThread {
+                initFruits()
+                adapter.notifyDataSetChanged()
+                swipeRefresh.isRefreshing = false
+            }
+        }
+    }
+
+    private fun initFruits() {
+        fruitList.clear()
+        repeat(50) {
+            val index = (0 until fruits.size).random()
+            fruitList.add(fruits[index])
         }
     }
 
