@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Log.d("mainactivity", MainViewModel::class.java.toString())
-        viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(MainViewModel::class.java)
+        viewModel = ViewModelProvider(this, MainViewModelFactory(100)).get(MainViewModel::class.java)
         plusOneBtn.setOnClickListener {
             viewModel.count++
             refreshCounter()
